@@ -1,0 +1,100 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* ── López Group Brand Variables ── */
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8C97E;
+  --gold-dim:   #8B6E2E;
+  --carbon:     #0A0A0A;
+  --dark-1:     #111111;
+  --dark-2:     #1A1A1A;
+  --dark-3:     #242424;
+  --gray-mid:   #6B6B6B;
+  --gray-light: #ADADAD;
+  --cream:      #F5F3EE;
+  --section-pad: 7rem 4rem;
+}
+
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark-2); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+/* ── Keyframes ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+@keyframes markerPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(201,168,76,0.2), 0 0 0 9px rgba(201,168,76,0.08); }
+  50%       { box-shadow: 0 0 0 8px rgba(201,168,76,0.14), 0 0 0 16px rgba(201,168,76,0.04); }
+}
+@keyframes waBounceIn {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes waPulse {
+  0%   { transform: scale(1); opacity: 0.7; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+@keyframes plLogoIn {
+  from { opacity: 0; transform: scale(0.7) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes plLogoPulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(201,168,76,0.15)); }
+  50%       { filter: drop-shadow(0 0 18px rgba(201,168,76,0.5)); }
+}
+@keyframes plFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Shared utilities ── */
+.lp-label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.lp-title {
+  font-family: "Playfair Display", serif;
+  color: var(--cream);
+  line-height: 1.15;
+}
+
+.lp-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.lp-gold-line {
+  height: 1px;
+  background: var(--gold);
+  transform-origin: left;
+}
+
+/* ── Reveal base ── */
+.lp-section {
+  padding: 7rem 4rem;
+}
+
+@media (max-width: 900px) {
+  .lp-section { padding: 5rem 1.5rem; }
+  :root { --section-pad: 5rem 1.5rem; }
+}
+
+/* ── Project card hover ── */
+.lp-project-card:hover .lp-project-overlay { opacity: 1; }
+.lp-project-card:hover .lp-project-img { transform: scale(1.06); }
