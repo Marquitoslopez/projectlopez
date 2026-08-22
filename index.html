@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="López Group — Construcción, minería y tecnología en San Juan, Argentina. Soluciones integrales con experiencia, seguridad e innovación.">
+  <title>López Group | Construcción · Minería · Tecnología · San Juan</title>
+  <link rel="icon" type="image/png" href="lpgrup.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Playfair Display — títulos premium con personalidad -->
+  <!-- Inter — cuerpo moderno, clarísima en cualquier tamaño -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="loading">
+
+<!-- PRELOADER -->
+<div id="preloader" role="status" aria-label="Cargando López Group">
+  <div class="pl-corner tl" aria-hidden="true"></div>
+  <div class="pl-corner tr" aria-hidden="true"></div>
+  <div class="pl-corner bl" aria-hidden="true"></div>
+  <div class="pl-corner br" aria-hidden="true"></div>
+  <div class="pl-logo-wrap">
+    <img src="lpgrup.png" alt="López Group" class="pl-logo" id="pl-logo">
+    <div class="pl-brand">
+      <h2>López Group</h2>
+      <span>Construcción · Minería · Tecnología</span>
+    </div>
+  </div>
+  <div class="pl-bar-wrap" aria-hidden="true">
+    <div class="pl-bar" id="pl-bar"></div>
+  </div>
+  <p class="pl-percent" id="pl-percent" aria-hidden="true">0%</p>
+  <p class="pl-tagline" id="pl-tagline" aria-hidden="true">Calidad · Compromiso · Innovación</p>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     LIGHTBOX
+══════════════════════════════════════ -->
+<!-- LIGHTBOX CON CARRUSEL
+     Al hacer click en un proyecto se abre este panel.
+     Si hay varias fotos, aparecen flechas y puntos para navegar.
+     Swipe táctil en móvil · Flechas ← → del teclado en desktop. -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Galería del proyecto">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLightbox()">✕ Cerrar</button>
+
+    <!-- Carrusel -->
+    <div class="lb-carousel" id="lb-carousel">
+      <div class="lb-track" id="lb-track"></div>
+
+      <button class="lb-arrow prev" id="lb-prev" aria-label="Foto anterior" onclick="lbNav(-1)">
+        <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+      </button>
+      <button class="lb-arrow next" id="lb-next" aria-label="Foto siguiente" onclick="lbNav(1)">
+        <svg viewBox="0 0 24 24"><polyline points="9,6 15,12 9,18"/></svg>
+      </button>
+
+      <div class="lb-counter" id="lb-counter"></div>
+    </div>
+
+    <!-- Puntos -->
+    <div class="lb-dots" id="lb-dots"></div>
+
+    <!-- Título y descripción -->
+    <div class="lb-caption">
+      <h3 id="lb-title"></h3>
+      <p id="lb-desc"></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header id="site-header">
+  <a class="logo-mark" href="#hero" aria-label="López Group — Inicio">
+    <div class="logo-img-wrap">
+      <img src="lpgrup.png" alt="López Group">
+    </div>
+    <div class="logo-text">
+      <h1>López Group</h1>
+      <span>Construcción · Minería · Tecnología</span>
+    </div>
+  </a>
+  <nav id="main-nav" role="navigation" aria-label="Menú principal">
+    <a href="#hero">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#contacto" class="nav-cta">Contacto</a>
+  </nav>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleNav()" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero" aria-label="Inicio">
+  <!--
+    IMAGEN HERO REAL: agregar al <section>:
+    style="background:url('img/hero.jpg') center/cover no-repeat;"
+    y descomentar .hero-overlay
+  -->
+  <div class="hero-bg"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-tri-bg" aria-hidden="true">
+    <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+      <polygon points="250,18 485,475 15,475" fill="none" stroke="rgba(201,168,76,1)" stroke-width="0.7"/>
+      <polygon points="250,72 446,455 54,455" fill="none" stroke="rgba(201,168,76,0.6)" stroke-width="0.45"/>
+      <polygon points="250,126 407,435 93,435" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.3"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">San Juan, Argentina · Desde 2000</p>
+    <h2 class="hero-title">Construimos, exploramos<br><em>y conectamos futuro.</em></h2>
+    <p class="hero-sub">Construcción, minería y tecnología integradas en una misma visión: trabajo responsable, soluciones concretas y crecimiento para San Juan.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="goTo('proyectos')">Ver proyectos</button>
+      <button class="btn-outline" onclick="goTo('contacto')">Contactarnos</button>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     ESTADÍSTICAS — Contador animado
+     Para cambiar los números editá data-target
+══════════════════════════════════════ -->
+<section id="stats" aria-label="Estadísticas">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-icon" aria-hidden="true">◈</div>
+      <div class="stat-number" data-target="26" aria-label="26 años de experiencia">
+        0<span class="stat-suffix">+</span>
+      </div>
+      <div class="stat-line"></div>
+      <p class="stat-label">Años de experiencia</p>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-icon" aria-hidden="true">◆</div>
+      <div class="stat-number" data-target="200" data-prefix="+" aria-label="Más de 200 proyectos">
+        <span class="stat-prefix">+</span>0
+      </div>
+      <div class="stat-line"></div>
+      <p class="stat-label">Proyectos completados</p>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-icon" aria-hidden="true">◉</div>
+      <div class="stat-number" data-target="85000" aria-label="85000 metros cuadrados">
+        0<span class="stat-suffix">m²</span>
+      </div>
+      <div class="stat-line"></div>
+      <p class="stat-label">Metros² construidos</p>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-icon" aria-hidden="true">◎</div>
+      <div class="stat-number" data-target="98" aria-label="98% clientes satisfechos">
+        0<span class="stat-suffix">%</span>
+      </div>
+      <div class="stat-line"></div>
+      <p class="stat-label">Clientes satisfechos</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     NOSOTROS
+     ─────────────────────────────────────
+     Foto: reemplazá nosotros.jpg por una foto
+     real del equipo o de una obra en proceso.
+     La segunda imagen (nosotros-2.jpg) es la
+     foto pequeña de la tarjeta de cita.
+══════════════════════════════════════ -->
+<section id="nosotros" aria-labelledby="nosotros-title">
+  <div class="nosotros-inner">
+
+    <!-- Columna visual: foto principal + tarjeta de cita -->
+    <div class="nosotros-visual reveal">
+      <!-- Foto principal — reemplazá nosotros.jpg -->
+      <div class="nosotros-img-frame">
+        <img src="img/equipo-construccion.jpg" alt="Equipo profesional trabajando con elementos de seguridad" loading="lazy">
+        <div class="nosotros-img-overlay" aria-hidden="true"></div>
+        <span class="photo-note">Imagen ilustrativa</span>
+        <div class="nos-corner tl" aria-hidden="true"></div>
+        <div class="nos-corner br" aria-hidden="true"></div>
+      </div>
+
+      <!-- Tarjeta de cita del fundador -->
+      <div class="nosotros-quote-card">
+        <div class="nosotros-quote-img">
+          <img src="img/geologia-muestra.jpg" alt="Muestra geológica observada en terreno" loading="lazy">
+        </div>
+        <blockquote>
+          <p>"Cada obra es la mejor<br>tarjeta de presentación."</p>
+          <cite>— Fundador, López Group</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Columna texto -->
+    <div class="nosotros-text reveal">
+      <p class="section-label">Quiénes somos</p>
+      <h2 class="section-title text-reveal" id="nosotros-title">
+        Más de 26 años<br><em>construyendo</em> confianza
+      </h2>
+      <div class="gold-line"></div>
+
+      <p class="body-reveal">
+        Fundada en San Juan, Argentina, <strong>López Group</strong> creció con una idea clara:
+        resolver desafíos reales con trabajo, experiencia y visión de futuro. Nuestra trayectoria
+        se apoya en la construcción y hoy se proyecta hacia la minería y la tecnología,
+        integrando capacidades que acompañan el desarrollo productivo de la región.
+      </p>
+      <p class="body-reveal">
+        Trabajamos con una metodología rigurosa, priorizando seguridad, planificación,
+        calidad y mejora continua. En terreno, en obra o frente a una solución digital,
+        buscamos el mismo resultado: procesos claros, decisiones respaldadas por información
+        y una ejecución responsable.
+      </p>
+
+      <!-- Valores -->
+      <div class="nosotros-valores">
+        <div class="valor-item reveal">
+          <div class="valor-icon" aria-hidden="true">◈</div>
+          <div>
+            <h4>Excelencia</h4>
+            <p>Cada detalle importa. Ejecutamos con los más altos estándares de calidad en cada etapa.</p>
+          </div>
+        </div>
+        <div class="valor-item reveal">
+          <div class="valor-icon" aria-hidden="true">◉</div>
+          <div>
+            <h4>Compromiso</h4>
+            <p>Plazos que se respetan y presupuestos que se cumplen. La palabra empeñada es nuestro contrato.</p>
+          </div>
+        </div>
+        <div class="valor-item reveal">
+          <div class="valor-icon" aria-hidden="true">◆</div>
+          <div>
+            <h4>Innovación</h4>
+            <p>Incorporamos las mejores tecnologías y métodos constructivos para entregar obras que duran décadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-outline" onclick="goTo('contacto')" style="margin-top:2rem;">
+        Conversemos sobre su proyecto
+      </button>
+    </div>
+
+  </div>
+</section>
+<!-- ══════════════════════════════════════
+     SERVICIOS
+══════════════════════════════════════ -->
+<section id="servicios" aria-labelledby="servicios-title">
+  <div class="services-inner">
+    <div class="reveal sec-centered">
+      <p class="section-label">Tres áreas · Una misma visión</p>
+      <h2 class="section-title text-reveal" id="servicios-title">Soluciones que <em>conectan</em> territorio y tecnología</h2>
+      <div class="gold-line"></div>
+      <p class="section-intro">Una propuesta multidisciplinaria pensada para acompañar proyectos desde el terreno hasta la gestión y la transformación digital.</p>
+    </div>
+
+    <div class="business-areas">
+      <article class="area-card reveal">
+        <img src="img/construccion-civil.jpg" alt="Obra de construcción civil con luz natural" loading="lazy">
+        <div class="area-shade"></div>
+        <div class="area-content">
+          <span class="area-kicker">01 · Construcción</span>
+          <h3>Obras que generan progreso</h3>
+          <p>Construcción civil, arquitectura, viviendas, remodelaciones y soporte técnico para proyectos públicos y privados.</p>
+        </div>
+      </article>
+
+      <article class="area-card reveal area-card-mining">
+        <img src="img/cordillera-san-juan.jpg" alt="Cordillera de los Andes en San Juan, Argentina" loading="lazy">
+        <div class="area-shade"></div>
+        <div class="area-content">
+          <span class="area-kicker">02 · Minería</span>
+          <h3>Territorio, geología y exploración</h3>
+          <p>Una mirada técnica y responsable sobre el territorio, con foco en prospección, exploración, geología, seguridad y trabajo de campo.</p>
+        </div>
+      </article>
+
+      <article class="area-card reveal">
+        <img src="img/tecnologia-equipo.jpg" alt="Equipo colaborando con computadoras en un entorno tecnológico" loading="lazy">
+        <div class="area-shade"></div>
+        <div class="area-content">
+          <span class="area-kicker">03 · Tecnología</span>
+          <h3>Información que mejora decisiones</h3>
+          <p>Desarrollo de software, sistemas de gestión, automatización y herramientas digitales aplicadas a empresas y operaciones.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">01</div>
+        <h3>Construcción Civil</h3>
+        <p>Ejecución y coordinación de obras, infraestructura, ampliaciones y soluciones constructivas con planificación y control.</p>
+        <div class="service-tags"><span>Obras</span><span>Infraestructura</span><span>Gestión</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">02</div>
+        <h3>Arquitectura y Viviendas</h3>
+        <p>Diseño, documentación y construcción de espacios funcionales, modernos y adaptados a las necesidades de cada proyecto.</p>
+        <div class="service-tags"><span>Diseño</span><span>Planos</span><span>Llave en mano</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">03</div>
+        <h3>Prospección y Exploración</h3>
+        <p>Apoyo a campañas de exploración, reconocimiento de terreno y organización de información técnica vinculada al ambiente minero.</p>
+        <div class="service-tags"><span>Campo</span><span>Exploración</span><span>Seguridad</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">04</div>
+        <h3>Geología y Muestreo</h3>
+        <p>Registro de observaciones, muestras, minerales y datos de campo para ordenar y respaldar el trabajo técnico.</p>
+        <div class="service-tags"><span>Geología</span><span>Muestras</span><span>Datos</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">05</div>
+        <h3>Tecnología e Informática</h3>
+        <p>Sistemas web, gestión de datos, automatización y soluciones digitales desarrolladas según la operación de cada organización.</p>
+        <div class="service-tags"><span>Software</span><span>Web</span><span>Automatización</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">06</div>
+        <h3>Consultoría y Gestión Técnica</h3>
+        <p>Organización documental, relevamientos, seguimiento de procesos y soporte técnico para mejorar el control de proyectos.</p>
+        <div class="service-tags"><span>Control</span><span>Relevamiento</span><span>Soporte</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PROYECTOS
+     ─────────────────────────────────────
+     CÓMO AGREGAR PROYECTOS:
+     Copiá el bloque <article class="project-card">
+     y modificá estos 4 datos:
+       1. onclick → nombre y descripción
+       2. <img src="..."> → ruta a la foto
+       3. .project-tag → categoría
+       4. .project-name y .project-desc → título y detalle
+     El grid se acomoda automáticamente.
+══════════════════════════════════════ -->
+<section id="proyectos" aria-labelledby="proyectos-title">
+  <div class="projects-header reveal">
+    <div>
+      <p class="section-label">Áreas en acción</p>
+      <h2 class="section-title text-reveal" id="proyectos-title">Una mirada <em>integral</em><br>al desarrollo</h2>
+      <p class="projects-note">Las fotografías de esta sección son ilustrativas y representan los sectores y capacidades de López Group.</p>
+    </div>
+    <div class="gold-line" style="margin:0;align-self:flex-end;"></div>
+  </div>
+
+  <div class="projects-grid" id="projects-grid">
+    <article class="project-card"
+      data-title="Construcción Civil" data-desc="Planificación, ejecución y coordinación de obras con foco en calidad, seguridad y cumplimiento." data-images='["img/construccion-civil.jpg"]' onclick="openGallery(this)"
+      tabindex="0" role="button" aria-label="Ver área Construcción Civil">
+      <div class="project-img"><img src="img/construccion-civil.jpg" alt="Construcción civil en ejecución bajo cielo despejado" loading="lazy"></div>
+      <div class="project-overlay"><span class="project-tag">Construcción</span><p class="project-name">Construcción Civil</p><p class="project-desc">Obras · Infraestructura · Gestión</p></div>
+      <span class="project-hint">Ver más</span>
+    </article>
+
+    <article class="project-card"
+      data-title="Arquitectura y Viviendas" data-desc="Diseño y desarrollo de espacios contemporáneos pensados para durar y mejorar la experiencia de quienes los habitan." data-images='["img/arquitectura-moderna.jpg"]' onclick="openGallery(this)"
+      tabindex="0" role="button" aria-label="Ver área Arquitectura y Viviendas">
+      <div class="project-img"><img src="img/arquitectura-moderna.jpg" alt="Arquitectura moderna iluminada por el sol" loading="lazy"></div>
+      <div class="project-overlay"><span class="project-tag">Arquitectura</span><p class="project-name">Arquitectura y Viviendas</p><p class="project-desc">Diseño · Planos · Ejecución</p></div>
+      <span class="project-hint">Ver más</span>
+    </article>
+
+    <article class="project-card"
+      data-title="Exploración Minera" data-desc="Trabajo de campo y lectura del territorio en un entorno natural representativo de la Cordillera de los Andes en San Juan." data-images='["img/cordillera-san-juan.jpg"]' onclick="openGallery(this)"
+      tabindex="0" role="button" aria-label="Ver área Exploración Minera">
+      <div class="project-img project-img-mining"><img src="img/cordillera-san-juan.jpg" alt="Cordillera de los Andes en San Juan" loading="lazy"></div>
+      <div class="project-overlay"><span class="project-tag">Minería · San Juan</span><p class="project-name">Exploración Minera</p><p class="project-desc">Territorio · Prospección · Campo</p></div>
+      <span class="project-hint">Ver más</span>
+    </article>
+
+    <article class="project-card"
+      data-title="Geología y Muestreo" data-desc="Observación y registro de muestras para ordenar información geológica y respaldar decisiones técnicas." data-images='["img/geologia-muestra.jpg","img/mineral-muestra.jpg"]' onclick="openGallery(this)"
+      tabindex="0" role="button" aria-label="Ver área Geología y Muestreo">
+      <div class="project-img"><img src="img/geologia-muestra.jpg" alt="Muestra mineral examinada durante trabajo geológico" loading="lazy"></div>
+      <div class="project-overlay"><span class="project-tag">Geología</span><p class="project-name">Geología y Muestreo</p><p class="project-desc">Muestras · Minerales · Registro</p></div>
+      <span class="project-hint">Ver galería</span>
+    </article>
+
+    <article class="project-card"
+      data-title="Minería y Entorno" data-desc="Una visión moderna de la actividad minera que integra geología, planificación, entorno y responsabilidad operacional." data-images='["img/mineria-paisaje.jpg"]' onclick="openGallery(this)"
+      tabindex="0" role="button" aria-label="Ver área Minería y Entorno">
+      <div class="project-img"><img src="img/mineria-paisaje.jpg" alt="Paisaje geológico asociado a actividad extractiva" loading="lazy"></div>
+      <div class="project-overlay"><span class="project-tag">Minería responsable</span><p class="project-name">Minería y Entorno</p><p class="project-desc">Geología · Planificación · Territorio</p></div>
+      <span class="project-hint">Ver más</span>
+    </article>
+
+    <article class="project-card"
+      data-title="Tecnología y Sustentabilidad" data-desc="Herramientas digitales y soluciones de energía que acompañan operaciones más eficientes, conectadas y preparadas para el futuro." data-images='["img/tecnologia-equipo.jpg","img/energia-sustentable.jpg"]' onclick="openGallery(this)"
+      tabindex="0" role="button" aria-label="Ver área Tecnología y Sustentabilidad">
+      <div class="project-img"><img src="img/energia-sustentable.jpg" alt="Energía solar en paisaje montañoso" loading="lazy"></div>
+      <div class="project-overlay"><span class="project-tag">Tecnología · Futuro</span><p class="project-name">Tecnología y Sustentabilidad</p><p class="project-desc">Datos · Software · Energía</p></div>
+      <span class="project-hint">Ver galería</span>
+    </article>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PROCESO DE TRABAJO
+══════════════════════════════════════ -->
+<section id="proceso" aria-labelledby="proceso-title">
+  <div class="proceso-inner">
+    <div class="reveal sec-centered">
+      <p class="section-label">Cómo trabajamos</p>
+      <h2 class="section-title text-reveal" id="proceso-title">
+        Un proceso <em>transparente</em> y estructurado
+      </h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="proceso-grid">
+
+      <div class="proceso-step reveal">
+        <div class="proceso-icon-wrap">
+          <span class="proceso-num">1</span>
+          <div class="proceso-icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none">
+              <rect x="8" y="6" width="28" height="32" rx="2" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+              <line x1="14" y1="16" x2="30" y2="16" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+              <line x1="14" y1="22" x2="26" y2="22" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+              <line x1="14" y1="28" x2="22" y2="28" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Consulta inicial</h3>
+        <p>Nos reunimos para entender su visión, necesidades y presupuesto. Analizamos el terreno o la obra existente y definimos el alcance del proyecto.</p>
+      </div>
+
+      <div class="proceso-step reveal">
+        <div class="proceso-icon-wrap">
+          <span class="proceso-num">2</span>
+          <div class="proceso-icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none">
+              <rect x="6" y="10" width="32" height="26" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+              <line x1="10" y1="18" x2="22" y2="18" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+              <line x1="10" y1="24" x2="20" y2="24" stroke="rgba(201,168,76,0.5)" stroke-width="0.8"/>
+              <circle cx="32" cy="28" r="5" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <polyline points="30,28 32,30 35,26" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Diseño y planificación</h3>
+        <p>Nuestro equipo elabora planos, renders y presupuesto detallado. Iteramos hasta que el proyecto refleje exactamente lo que imaginó.</p>
+      </div>
+
+      <div class="proceso-step reveal">
+        <div class="proceso-icon-wrap">
+          <span class="proceso-num">3</span>
+          <div class="proceso-icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none">
+              <rect x="4" y="28" width="36" height="10" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+              <polygon points="22,8 38,28 6,28" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+              <line x1="22" y1="28" x2="22" y2="38" stroke="#C9A84C" stroke-width="1.2"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Ejecución de obra</h3>
+        <p>Comenzamos la construcción con supervisión técnica permanente. Informes de avance semanales y acceso a la obra en cualquier momento.</p>
+      </div>
+
+      <div class="proceso-step reveal">
+        <div class="proceso-icon-wrap">
+          <span class="proceso-num">4</span>
+          <div class="proceso-icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none">
+              <circle cx="22" cy="22" r="14" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+              <polyline points="15,22 20,27 30,17" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Entrega y garantía</h3>
+        <p>Hacemos entrega formal con todos los documentos, planos finales y garantía escrita. Su satisfacción es nuestra mejor obra.</p>
+      </div>
+
+    </div>
+
+    <!-- Línea conectora (decorativa, solo desktop) -->
+    <div class="proceso-line" aria-hidden="true"></div>
+
+    <div class="reveal" style="text-align:center; margin-top:3rem;">
+      <button class="btn-primary" onclick="goTo('contacto')">Iniciar mi proyecto</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FAQ — PREGUNTAS FRECUENTES
+══════════════════════════════════════ -->
+<section id="faq" aria-labelledby="faq-title">
+  <div class="faq-inner">
+
+    <!-- Columna izquierda: título sticky -->
+    <div class="faq-left reveal">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title text-reveal" id="faq-title">
+        Preguntas <em>frecuentes</em>
+      </h2>
+      <div class="gold-line"></div>
+      <p class="faq-sub">¿No encontró su respuesta? Contáctenos directamente y le respondemos a la brevedad.</p>
+      <button class="btn-outline" onclick="goTo('contacto')" style="margin-top:1.75rem;">
+        Hacer una consulta
+      </button>
+    </div>
+
+    <!-- Columna derecha: acordeón -->
+    <div class="faq-accordion">
+
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>¿En qué zonas de Argentina operan?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Operamos principalmente en San Juan y la región de Cuyo. Para proyectos de gran envergadura también nos desplazamos a otras provincias. Consultenos por su caso particular.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>¿Cómo se define el presupuesto de una obra?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <p>El presupuesto se elabora luego de la consulta inicial y relevamiento. Incluye materiales, mano de obra, plazos y contingencias. Siempre es detallado y por escrito, sin sorpresas.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>¿Cuánto tiempo demora la construcción de una vivienda?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Depende de la superficie y complejidad. Una vivienda estándar de 120 m² demora entre 8 y 12 meses. Damos un cronograma detallado antes de comenzar y lo cumplimos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>¿López Group ofrece financiamiento?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Trabajamos con planes de pago por etapas de avance de obra. También asesoramos sobre créditos hipotecarios y opciones de financiamiento disponibles según el perfil del cliente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>¿Qué documentación proveen al finalizar la obra?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Entregamos planos finales conforme a obra, certificados de fin de obra, documentación ante AFIP y organismos municipales, garantía escrita por defectos constructivos y manual de mantenimiento.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>¿Trabajan con materiales de origen nacional o importados?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Priorizamos materiales nacionales de primera línea. Para acabados especiales o a pedido del cliente, trabajamos con materiales importados de proveedores certificados. Siempre transparentamos el costo.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CONTACTO
+══════════════════════════════════════ -->
+<section id="contacto" aria-labelledby="contacto-title">
+  <div class="contact-inner">
+
+    <div class="reveal">
+      <p class="section-label">Hablemos</p>
+      <h2 class="section-title text-reveal" id="contacto-title">Iniciemos su <em>próximo <br>gran proyecto</em></h2>
+      <div class="gold-line"></div>
+      <!--
+        PARA ENVÍO REAL: cambiar <form onsubmit="..."> por
+        <form action="https://formspree.io/f/TU_ID" method="POST">
+        y quitar el onsubmit
+      -->
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Su nombre completo" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Razón social (opcional)" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="contacto@empresa.com" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+54 261 000-0000" autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo de proyecto</label>
+          <select id="tipo" name="tipo">
+            <option value="" disabled selected>Seleccione una categoría</option>
+            <option value="construccion">Construcción / obra civil</option>
+            <option value="arquitectura">Arquitectura / vivienda</option>
+            <option value="mineria">Minería / exploración</option>
+            <option value="geologia">Geología / muestreo</option>
+            <option value="tecnologia">Tecnología / software</option>
+            <option value="consultoria">Consultoría / gestión técnica</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Cuéntenos su proyecto</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Describa brevemente su idea, ubicación y plazos estimados..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;padding:1rem 2rem;" id="submit-btn">
+          Enviar consulta
+        </button>
+        <p id="form-msg" style="margin-top:0.75rem;font-size:0.82rem;color:var(--gold);display:none;text-align:center;"></p>
+      </form>
+    </div>
+
+    <div class="reveal contact-sidebar">
+      <div class="contact-map">
+        <!--
+          MAPA REAL: reemplazar .map-inner por:
+          <iframe src="https://maps.google.com/maps?q=TU+DIRECCION&output=embed"
+            width="100%" height="260" frameborder="0" loading="lazy" style="display:block;"></iframe>
+        -->
+        <div class="map-inner" role="img" aria-label="Mapa de ubicación López Group">
+          <div class="map-grid" aria-hidden="true"></div>
+          <div class="map-roads" aria-hidden="true"></div>
+          <div class="map-marker" aria-hidden="true"><div class="map-dot"></div><div class="map-pin"></div></div>
+          <div class="map-label">Argentina · San Juan</div>
+        </div>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="ci-icon">◎</div>
+            <div class="ci-text"><h4>Dirección</h4><p>Av. San Martín 1234, San Martín<br>San Juan, Argentina</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon">◈</div>
+            <div class="ci-text"><h4>Teléfono</h4><p><a href="tel:+542623000000">+54 (2623) 000-000</a></p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon">◆</div>
+            <div class="ci-text"><h4>Email</h4><p><a href="mailto:info@lopezgroup.com.ar">info@lopezgroup.com.ar</a></p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon">◉</div>
+            <div class="ci-text"><h4>Horarios</h4><p>Lun – Vie: 8:00 – 18:00 h<br>Sábados: 9:00 – 13:00 h</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo-mark" style="pointer-events:none;">
+        <div class="logo-img-wrap" style="width:40px;height:40px;">
+          <img src="lpgrup.png" alt="López Group">
+        </div>
+        <div class="logo-text"><h1 style="font-size:1.1rem;">López Group</h1><span>Construcción · Minería · Tecnología</span></div>
+      </div>
+      <p>Construcción, minería y tecnología para acompañar el desarrollo de San Juan con trabajo, seguridad e innovación.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#servicios">Construcción Civil</a></li>
+        <li><a href="#servicios">Arquitectura y Viviendas</a></li>
+        <li><a href="#servicios">Prospección y Exploración</a></li>
+        <li><a href="#servicios">Geología y Muestreo</a></li>
+        <li><a href="#servicios">Tecnología e Informática</a></li>
+        <li><a href="#servicios">Consultoría Técnica</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#contacto">San Juan, Argentina</a></li>
+        <li><a href="tel:+542623000000">+54 (2623) 000-000</a></li>
+        <li><a href="mailto:info@lopezgroup.com.ar">info@lopezgroup.com.ar</a></li>
+        <li><a href="#contacto">Lun – Vie 8:00 – 18:00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span id="current-year">2026</span> <span>López Group</span>. Todos los derechos reservados.</p>
+    <p>San Juan, Argentina</p>
+  </div>
+</footer>
+
+
+
+<!-- WHATSAPP FLOTANTE
+     Cambiá el número: https://wa.me/549XXXXXXXXXX
+     549 + código de área sin 0 + número -->
+<div class="whatsapp-float" role="complementary" aria-label="Contacto por WhatsApp">
+  <span class="wa-tooltip">¡Hola! <strong>¿Consultamos?</strong></span>
+  <a class="wa-btn"
+     href="https://wa.me/5492644000000?text=Hola%20L%C3%B3pez%20Group%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20proyecto."
+     target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 .5C7.439.5.5 7.439.5 16c0 2.777.726 5.38 1.995 7.644L.5 31.5l8.13-2.128A15.437 15.437 0 0016 31.5C24.561 31.5 31.5 24.561 31.5 16S24.561.5 16 .5zm0 28.273a13.19 13.19 0 01-6.73-1.847l-.482-.286-4.827 1.265 1.287-4.702-.315-.5A13.22 13.22 0 012.773 16C2.773 9.22 8.22 3.773 16 3.773S29.227 9.22 29.227 16 23.78 28.773 16 28.773zm7.234-9.87c-.396-.198-2.344-1.156-2.707-1.289-.363-.132-.627-.198-.891.199-.264.396-1.023 1.289-1.254 1.553-.231.265-.462.298-.858.1-.396-.199-1.672-.616-3.185-1.965-1.177-1.05-1.972-2.346-2.203-2.742-.231-.396-.025-.61.173-.807.179-.178.396-.463.594-.695.198-.231.264-.396.396-.66.132-.264.066-.496-.033-.695-.1-.198-.891-2.15-1.221-2.945-.32-.773-.647-.668-.891-.68l-.759-.013c-.264 0-.693.099-.1056.496-.363.396-1.386 1.354-1.386 3.304 0 1.95 1.419 3.834 1.617 4.098.198.264 2.793 4.263 6.768 5.979.946.408 1.684.651 2.259.834.949.302 1.813.259 2.496.157.762-.113 2.344-.958 2.675-1.883.33-.925.33-1.718.231-1.883-.099-.165-.363-.264-.759-.462z"/>
+    </svg>
+    <span class="wa-badge" aria-hidden="true"></span>
+  </a>
+</div>
+
+<!-- BOTÓN VOLVER ARRIBA -->
+<button id="back-to-top" aria-label="Volver al inicio" onclick="goTo('hero')">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+    <polyline class="btt-arrow" points="3,12 9,5 15,12"
+      stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+      style="transition:stroke 0.25s ease;"/>
+  </svg>
+</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
